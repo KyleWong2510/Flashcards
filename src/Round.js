@@ -47,6 +47,7 @@ class Round {
     let time = this.displayTime()
     console.log(`** Round over! ** You answered ${percent}% of the questions correctly in ${time} minutes!`)    
   }
+
 }
 
 module.exports = Round
