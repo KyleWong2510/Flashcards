@@ -73,7 +73,7 @@ async function main(round) {
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
-    if(!round.returnCurrentCard() && round.calculatePercentage() < 90) {
+    if(!round.returnCurrentCard() && round.calculatePercentage() < 70) {
       round.endRound()
       round.incorrectGuesses.forEach(guess => missedQs.push(guess))
       console.log(':(')
@@ -87,6 +87,7 @@ async function main(round) {
       round.startTimer()
     }
     if(!round.returnCurrentCard()) {
+      round.incorrectGuesses.forEach(guess => missedQs.push(guess))
       round.endRound()
       console.log('Report Card: You missed the following questions:')
       console.log(displayReportCard());
