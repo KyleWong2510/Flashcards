@@ -87,6 +87,7 @@ async function main(round) {
       round.startTimer()
     }
     if(!round.returnCurrentCard()) {
+      round.incorrectGuesses.forEach(guess => missedQs.push(guess))
       round.endRound()
       console.log('Report Card: You missed the following questions:')
       console.log(displayReportCard());
