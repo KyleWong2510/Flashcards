@@ -73,7 +73,7 @@ async function main(round) {
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
-    if(!round.returnCurrentCard() && round.calculatePercentage() < 70) {
+    if(!round.returnCurrentCard() && round.calculatePercentage() < 90) {
       round.endRound()
       round.incorrectGuesses.forEach(guess => missedQs.push(guess))
       console.log(':(')
